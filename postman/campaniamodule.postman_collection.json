@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "2eed176f-4d76-4fed-ab49-dfa3597483da",
+		"name": "campanianotificar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24443249"
+	},
+	"item": [
+		{
+			"name": "desarrollo",
+			"item": [
+				{
+					"name": "v1/campania",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "v1/campania/colaborador/notificar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5058/v1/campania/colaborador/notificar?telefono=100000157&campania=confio_en_yo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5058",
+							"path": [
+								"v1",
+								"campania",
+								"colaborador",
+								"notificar"
+							],
+							"query": [
+								{
+									"key": "telefono",
+									"value": "100000157"
+								},
+								{
+									"key": "campania",
+									"value": "confio_en_yo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/campania/estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.87.75:9105/v1/campania/estado?campania=confio_en_yo",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"87",
+								"75"
+							],
+							"port": "9105",
+							"path": [
+								"v1",
+								"campania",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "campania",
+									"value": "confio_en_yo"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

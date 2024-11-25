@@ -1,0 +1,74 @@
+
+CREATE TABLE CACTUS_SAFI.SWB_DATA_CAMPANIA (
+    COD_CAMPANIA 				NUMBER(19) GENERATED ALWAYS AS IDENTITY,  
+    NOM_CAMPANIA 		        VARCHAR2(255),
+    COD_CLIENTE 			    VARCHAR2(10) DEFAULT NULL,
+    NOM_CLIENTE 		        VARCHAR2(255),
+    TIP_DOCUMENTO 		        VARCHAR2(255),
+    NUM_DOCUMENTO 			    VARCHAR2(255),
+    DES_EMAIL 				    VARCHAR2(255),
+    DES_DIR  				    VARCHAR2(255),
+    COD_TELEFONO 			    VARCHAR2(255),
+    NUM_TELEFONO 			    VARCHAR2(255),
+    DES_MONTO 				    VARCHAR2(20),
+    DES_TASA 				    VARCHAR2(10),
+    IND_RESPUESTA 			    NUMBER(1),
+    DES_URL 			        VARCHAR2(500),
+    DES_URL_ACORTADA 			VARCHAR2(500),
+    DES_COD_URL 			    VARCHAR2(40),
+    IND_EXITO 				    NUMBER(1),
+    FEC_VENCIMIENTO             TIMESTAMP,
+    FEC_CREACION                TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+tablespace CACTUS_SAFI
+pctfree 10
+initrans 1
+maxtrans 255
+storage
+(
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+);
+
+COMMENT ON TABLE CACTUS_SAFI.SWB_DATA_CAMPANIA IS 'Tabla para almacenar campañas';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.COD_CAMPANIA IS 'Codigo unico';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.NOM_CAMPANIA IS 'Nombre de campaña';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.COD_CLIENTE IS 'Codigo de cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.NOM_CLIENTE IS 'Nombre del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.TIP_DOCUMENTO IS 'Tipo de documento del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.NUM_DOCUMENTO IS 'Numero de documento';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_EMAIL IS 'Email del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_DIR IS 'Direccion del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.COD_TELEFONO IS 'Codigo de pais del telefono celular del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.NUM_TELEFONO IS 'Telefono celular del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_MONTO IS 'Monto preaprobado del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_TASA IS 'Tasa preaprobada del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.IND_RESPUESTA IS 'Indice de respuesta del cliente';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_URL IS 'Descripción de la url';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_URL_ACORTADA IS 'Descripción de la url con el dominio';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.DES_COD_URL IS 'Código de la url acortada';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.IND_EXITO IS 'Indicador del exito de envio del mensaje';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.FEC_VENCIMIENTO IS 'Fecha de vencimiento de la campaña';
+COMMENT ON COLUMN CACTUS_SAFI.SWB_DATA_CAMPANIA.FEC_CREACION IS 'Fecha de creación del registro';
+
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table CACTUS_SAFI.SWB_DATA_CAMPANIA
+add constraint SWB_DATA_CAMPANIA_PK primary key (COD_CAMPANIA)
+using index 
+tablespace CACTUS_SAFI
+pctfree 10
+initrans 2
+maxtrans 255
+storage
+(
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+); 
+
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete on CACTUS_SAFI.SWB_DATA_CAMPANIA to WEBUSER;
+
